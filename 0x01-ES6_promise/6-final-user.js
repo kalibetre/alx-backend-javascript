@@ -7,6 +7,6 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     uploadPhoto(fileName),
   ]).then((values) => values.map((value) => ({
     status: value.status,
-    value: value.value || value.reason,
+    value: value.status === 'fulfilled' ? value.value : String(value.reason),
   })));
 }
