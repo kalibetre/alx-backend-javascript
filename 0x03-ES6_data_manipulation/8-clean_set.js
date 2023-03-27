@@ -7,7 +7,9 @@
  */
 export default function cleanSet(set, startString) {
   if (startString === '') return '';
-  let filtered = [...set].filter((value) => value.startsWith(startString));
+  let filtered = [...set].filter(
+    (value) => typeof value === 'string' && value.startsWith(startString),
+  );
   filtered = filtered.map((value) => value.replace(startString, ''));
   return filtered.join('-');
 }
