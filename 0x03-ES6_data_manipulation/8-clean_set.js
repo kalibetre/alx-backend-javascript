@@ -6,7 +6,14 @@
  * @returns {String}
  */
 export default function cleanSet(set, startString) {
-  if (startString === '') return '';
+  if (!set
+    || !startString
+    || !(set instanceof Set)
+    || typeof startString !== 'string'
+    || startString === ''
+  ) {
+    return '';
+  }
   let filtered = [...set].filter(
     (value) => typeof value === 'string' && value.startsWith(startString),
   );
