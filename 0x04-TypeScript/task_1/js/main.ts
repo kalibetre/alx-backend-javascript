@@ -7,12 +7,46 @@ interface Teacher {
   [property: string]: unknown;
 }
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = function (
+  firstName: string,
+  lastName: string,
+): string {
+  return `${firstName[0]}. ${lastName}`;
 };
 
-console.log(teacher3);
+interface Student {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): Student;
+}
+
+class StudentClass implements Student {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
