@@ -28,7 +28,6 @@ async function countStudents(path) {
         filedOfStudy[key].length
       }. List: ${filedOfStudy[key].join(', ')}`;
     });
-    res += '\n';
     return res;
   } catch (error) {
     throw new Error('Cannot load the database');
