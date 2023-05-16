@@ -48,6 +48,7 @@ const app = http.createServer(async (req, res) => {
           )}`,
         );
       } catch (error) {
+        res.statusCode = 404;
         res.end(error.message);
       }
       break;
