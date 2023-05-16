@@ -36,20 +36,17 @@ async function countStudents(path) {
 
 const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
+  const msg = 'This is the list of our students';
   switch (req.url) {
     case '/':
       res.end('Hello Holberton School!');
       break;
     case '/students':
       try {
-        res.end(
-          `This is the list of our students\n${await countStudents(
-            process.argv[2],
-          )}`,
-        );
+        res.end(`${msg}\n${await countStudents(process.argv[2])}`);
       } catch (error) {
         res.statusCode = 404;
-        res.end(error.message);
+        res.end(`${msg}\n${error.message}`);
       }
       break;
     default:
