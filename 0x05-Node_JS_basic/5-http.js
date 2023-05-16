@@ -40,11 +40,15 @@ const app = http.createServer(async (req, res) => {
       res.end('Hello Holberton School!');
       break;
     case '/students':
-      res.end(
-        `This is the list of our students\n${await countStudents(
-          process.argv[2],
-        )}`,
-      );
+      try {
+        res.end(
+          `This is the list of our students\n${await countStudents(
+            process.argv[2],
+          )}`,
+        );
+      } catch (error) {
+        res.end(error.message);
+      }
       break;
     default:
       break;
