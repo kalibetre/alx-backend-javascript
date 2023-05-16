@@ -35,6 +35,7 @@ async function countStudents(path) {
 }
 
 const app = http.createServer(async (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
   switch (req.url) {
     case '/':
       res.end('Hello Holberton School!');
