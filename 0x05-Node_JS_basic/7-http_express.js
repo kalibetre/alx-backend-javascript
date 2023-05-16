@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const express = require('express');
 
 /**
@@ -42,10 +42,10 @@ app.get('/students', async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   const msg = 'This is the list of our students';
   try {
-    res.end(`${msg}\n${await countStudents(process.argv[2])}`);
+    res.send(`${msg}\n${await countStudents(process.argv[2])}`);
   } catch (error) {
     res.statusCode = 404;
-    res.end(`${msg}\n${error.message}`);
+    res.send(`${msg}\n${error.message}`);
   }
 });
 
