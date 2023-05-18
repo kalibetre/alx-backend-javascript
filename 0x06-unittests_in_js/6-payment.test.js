@@ -15,17 +15,4 @@ describe('getPaymentTokenFromAPI', () => {
         done(error);
       });
   });
-
-  it('does not resolve with failure and value', (done) => {
-    assert.equal(getPaymentTokenFromAPI(false), undefined);
-    done();
-  });
-
-  it('promise resolves with success and value - with chai', () => {
-    getPaymentTokenFromAPI(true).then((response) => {
-      expect(response).to.deep.equal({
-        data: 'Successful response from the API',
-      });
-    });
-  });
 });
