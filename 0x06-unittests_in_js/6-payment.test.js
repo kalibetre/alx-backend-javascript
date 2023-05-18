@@ -1,9 +1,8 @@
 const assert = require('assert');
-const { expect } = require('chai');
 const getPaymentTokenFromAPI = require('./6-payment_token');
 
 describe('getPaymentTokenFromAPI', () => {
-  it('promise resolves with success and value', (done) => {
+  it('promise resolves with success and value', function (done) {
     getPaymentTokenFromAPI(true)
       .then((response) => {
         assert.deepStrictEqual(response, {
