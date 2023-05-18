@@ -21,12 +21,11 @@ const TEST_CASES = [
 
 describe('test 1-calcul module', function () {
   TEST_CASES.forEach(function (testCase) {
-    it(`test calculateNumber with ${testCase.type} - ${testCase.a} and ${testCase.b}`, function (done) {
+    it(`test calculateNumber with ${testCase.type} - ${testCase.a} and ${testCase.b}`, function () {
       assert.equal(
         calculateNumber(testCase.type, testCase.a, testCase.b),
         testCase.expected,
       );
-      done();
     });
   });
 });

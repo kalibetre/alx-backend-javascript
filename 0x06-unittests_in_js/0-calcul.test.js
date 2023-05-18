@@ -14,9 +14,8 @@ const TEST_CASES = [
 
 describe('test 0-calcul module', function () {
   TEST_CASES.forEach(function (testCase) {
-    it(`test calculateNumber with ${testCase.a} and ${testCase.b}`, function (done) {
+    it(`test calculateNumber with ${testCase.a} and ${testCase.b}`, function () {
       assert.equal(calculateNumber(testCase.a, testCase.b), testCase.expected);
-      done();
     });
   });
 });
