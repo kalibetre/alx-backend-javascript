@@ -13,13 +13,20 @@ describe('API', () => {
   });
   describe('Cart Page', () => {
     it('should return the correct status code when :id is a number', (done) => {
-      request.get('http://localhost:7865/cart/12', (err, res, body) => {
+      request.get('http://localhost:7865/cart/5555', (err, res, body) => {
         expect(res.statusCode).to.equal(200);
+        expect(res.body).to.equal('Payment methods for cart 5555');
         done();
       });
     });
     it('should return the correct status code when :id is not a number', (done) => {
       request.get('http://localhost:7865/cart/anything', (err, res, body) => {
+        expect(res.statusCode).to.equal(404);
+        done();
+      });
+    });
+    it('should return the correct status code when :id is not given', (done) => {
+      request.get('http://localhost:7865/cart/', (err, res, body) => {
         expect(res.statusCode).to.equal(404);
         done();
       });
