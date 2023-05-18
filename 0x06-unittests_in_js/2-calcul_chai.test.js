@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const calculateNumber = require('./1-calcul.js');
+const calculateNumber = require('./2-calcul_chai');
 
 const TEST_CASES = [
   { type: 'SUM', a: 1.2, b: 3.7, expected: 5 },
